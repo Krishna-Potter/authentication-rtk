@@ -10,11 +10,6 @@ const sliceObj = {
   name: "authentication",
   initialState,
   reducers: {
-    handleData: (state, action) => {
-      let formData = { ...state };
-      formData[action.payload] = action.payload;
-      return formData;
-    },
     storeUsername: (state, action) => {
       state.username = action.payload;
     },
@@ -24,6 +19,8 @@ const sliceObj = {
     validateAuthData: (state) => {
       if (state.username === "krishna" && state.password === "12345") {
         state.loggedStatus = true;
+      } else {
+        state.loggedStatus = false;
       }
     },
   },
